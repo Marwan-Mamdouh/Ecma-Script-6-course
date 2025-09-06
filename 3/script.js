@@ -2,10 +2,10 @@ class Polygon {
   constructor(...side) {
     if (new.target === Polygon) {
       throw new Error("can't get instance from Polygon.");
-    } else if (this.constructor.name === "Circle") {
+    } else if (new.target.name === "Circle") {
       this.radius = side[0];
       return;
-    } else if (this.constructor.name === "Triangle") {
+    } else if (new.target.name === "Triangle") {
       this.base = side[0];
       this.height = side[1];
       return;
@@ -92,25 +92,25 @@ class Triangle extends Polygon {
   }
 }
 
-const canva = document.querySelector("canvas");
-const context = canva.getContext("2d");
+// const canva = document.querySelector("canvas");
+// const context = canva.getContext("2d");
 
 const r1 = new Rectangle(100, 50);
 console.log(r1.area());
 console.log(r1.toString());
-r1.draw(context, 100, 120);
+// r1.draw(context, 100, 120);
 
 const s1 = new Square(90);
 console.log(s1.area());
 console.log(s1.toString());
-s1.draw(context, 250, 120);
+// s1.draw(context, 250, 120);
 
 const c1 = new Circle(60);
 console.log(c1.area());
 console.log(c1.toString());
-c1.draw(context, 450, 120);
+// c1.draw(context, 450, 120);
 
 const t1 = new Triangle(90, 150);
 console.log(t1.area());
 console.log(t1.toString());
-t1.draw(context, 0, 120);
+// t1.draw(context, 0, 120);
